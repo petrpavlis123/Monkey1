@@ -143,7 +143,7 @@ public partial class BaseViewModel : ObservableObject
 
 在这里，我们可以看到我们的代码已经大大简化成了一个 `ObservableObject` 基类，它实现了 `INotifyPropertyChanged` 以及绑定相关属性。
 
-请注意，isBusy 和 title 都附加了 `[ObservableProperty]` 属性。 生成的代码看起来几乎与我们手动编写的相同。 另外，isBusy 属性有 `[NotifyPropertyChangedFor(nameof(IsNotBusy))]`，当值改变时也会通知 `IsNotBusy`。 要查看生成的代码，请转到项目，然后展开 **Dependencies -> net6.0-android -> Analyzers -> CommunityToolkit.Mvvm.SourceGenerators -> CommunityToolkit.Mvvm.SourceGenerators.ObservablePropertyGenerator** 并打开`MonkeyFinder.ViewModel。 BaseViewModel.cs`：
+请注意，isBusy 和 title 都附加了 `[ObservableProperty]` 属性。 生成的代码看起来几乎与我们手动编写的相同。 另外，isBusy 属性有 `[NotifyPropertyChangedFor(nameof(IsNotBusy))]`，当值改变时也会通知 `IsNotBusy`。 要查看生成的代码，请转到项目，然后展开 **Dependencies -> net7.0-android -> Analyzers -> CommunityToolkit.Mvvm.SourceGenerators -> CommunityToolkit.Mvvm.SourceGenerators.ObservablePropertyGenerator** 并打开`MonkeyFinder.ViewModel。 BaseViewModel.cs`：
 
 这是我们的 `IsBusy` 属性:
 
@@ -226,7 +226,7 @@ public bool IsBusy
 
 5. 别忘记在文件顶部添加以下 using 指令以访问 `ReadFromJsonAsync` 扩展方法：
    
-       ```csharp
+    ```csharp
     using System.Net.Http.Json;
     ```
 
@@ -491,8 +491,6 @@ monkeyList = JsonSerializer.Deserialize<List<Monkey>>(contents);
 
 ## 创建用户界面 
 
-It is now time to build the .NET MAUI user interface in `View/MainPage.xaml`. Our end result is to build a page that looks like this:
-
 现在是时候在 `View/MainPage.xaml` 中构建 .NET MAUI 用户界面了。 我们的最终结果是构建一个如下所示的页面：
 
 ![](../Art/FinalUI.PNG)
@@ -607,6 +605,7 @@ It is now time to build the .NET MAUI user interface in `View/MainPage.xaml`. Ou
                                        HeightRequest="125"/>
                                 <VerticalStackLayout
                                     Grid.Column="1"
+                                    VerticalOptions="Center"
                                     Padding="10">
                                     <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Location}" />
@@ -651,6 +650,7 @@ It is now time to build the .NET MAUI user interface in `View/MainPage.xaml`. Ou
                                        HeightRequest="125"/>
                                 <VerticalStackLayout
                                     Grid.Column="1"
+                                    VerticalOptions="Center"
                                     Padding="10">
                                     <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Location}" />
@@ -706,6 +706,7 @@ It is now time to build the .NET MAUI user interface in `View/MainPage.xaml`. Ou
                                        HeightRequest="125"/>
                                 <VerticalStackLayout
                                     Grid.Column="1"
+                                    VerticalOptions="Center"
                                     Padding="10">
                                     <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
                                     <Label Style="{StaticResource MediumLabel}" Text="{Binding Location}" />
@@ -728,8 +729,9 @@ It is now time to build the .NET MAUI user interface in `View/MainPage.xaml`. Ou
         <!-- Add this -->
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"
+			   Color="{StaticResource Primary}"
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
     </Grid>

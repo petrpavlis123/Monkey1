@@ -24,11 +24,13 @@
     Grid.ColumnSpan="2"
     Command="{Binding GetMonkeysCommand}"
     IsRefreshing="{Binding IsRefreshing}">
-    <CollectionView
-        ItemsSource="{Binding Monkeys}"
-        SelectionMode="None">
-        <!-- Template -->
-    </CollectionView>
+    <ContentView>
+        <CollectionView
+            ItemsSource="{Binding Monkeys}"
+            SelectionMode="None">
+            <!-- Template -->
+        </CollectionView>
+    </ContentView>
 </RefreshView>
 ```
 
@@ -135,9 +137,11 @@
     <CollectionView.EmptyView>
         <StackLayout Padding="100">
             <Image
-                HorizontalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
                 Source="nodata.png"
-                VerticalOptions="CenterAndExpand" />
+                HeightRequest="160"
+                WidthRequest="160"
+                VerticalOptions="Center" />
         </StackLayout>
     </CollectionView.EmptyView>
     <!-- ItemTemplate & ItemsLayout-->
