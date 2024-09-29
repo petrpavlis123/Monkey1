@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![YouTube Video Views](https://img.shields.io/youtube/views/mgW6xviirQk?style=social)
 
 # Video Walkthrough
@@ -52,3 +53,6 @@ In this workshop you will build the same app as in this one, the Monkey Finder a
 - [.NET Beginner Series Videos](https://dot.net/videos)
 
 If you have any questions please reach out to me on Twitter [@JamesMontemagno](https://twitter.com/jamesmontemagno). 
+=======
+# Tindermonkey1
+>>>>>>> d619e427d4dd3debab2bec1b1bc9256311ef09c8
