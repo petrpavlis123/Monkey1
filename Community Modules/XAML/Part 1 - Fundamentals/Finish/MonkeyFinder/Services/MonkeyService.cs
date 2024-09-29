@@ -23,6 +23,8 @@ public class MonkeyService
             monkeyList = await response.Content.ReadFromJsonAsync(MonkeyContext.Default.ListMonkey);
         }
 
+        
+        
         // Offline
         /*using var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
         using var reader = new StreamReader(stream);
